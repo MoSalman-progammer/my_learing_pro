@@ -1,0 +1,32 @@
+# Guess The Number
+# You have to guess the number in 9 try
+ng = 9
+n = 18
+print("Welcome to the game of guess.\n")
+print("You have to guess the number in 9 guess\n")
+while (True):
+    try:
+        g = int(input("\nPlese guess the number.\n"))
+        if ng == 0:
+            print("You have lost the game\n")
+            break
+        elif g == n:
+            ng = ng - 1
+            print("Congratulation you have won the game in", 9 - ng, end=" try.\n")
+            w = input("would you like to countinu the game(Y/N):")
+            if w.capitalize() == "Y":
+                ng = 9 - ng + ng
+                print("Lets start the game agane.\n")
+                print("You have to guess the number in 9 guess\n")
+            else:
+                break
+        elif g > n:
+            print("Plese put a lower number.")
+            print("You have", ng, end=" guess left.\n")
+            ng = ng - 1
+        else:
+            print("Plese put a greater number.")
+            print("You have", ng, end=" guess left.\n")
+            ng = ng - 1
+    except Exception as er:
+        print(er)
