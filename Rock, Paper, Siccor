@@ -2,6 +2,7 @@
 
 # module's os.path will help me check if score file exist or not and random for random
 import os.path
+import sys
 import random
 
 # this function will give me score
@@ -10,6 +11,16 @@ def getscore(pls, cms):
     print("\nYour score is", pls)
     print("Computer score is", cms)
 
+#This function will get score from stored file
+# first score(cms) is of computer and second(pls) player
+
+def Getfilescore():
+    scf = open("Score(R.P.S).txt", "r")
+    sc = scf.readlines()
+    cms = int(sc[0])
+    pls = int(sc[1])
+    scf.close()
+
 
 # this function saves score, ss = save score
 
@@ -17,6 +28,21 @@ def ss(cms, pls):
     scf = open("Score(R.P.S).txt", "w")
     scf.write(str(cms) + "\n" + str(pls))
     scf.close()
+
+
+#Generated this code with Chat GPT
+#//////////
+# Get the directory of the currently running script
+script_dir = os.path.dirname(os.path.abspath(sys.argv[0]))
+
+# Change the current working directory to that directory
+os.chdir(script_dir)
+#//////////
+
+
+#this sets both scoce to zero initially
+cms=0
+pls=0
 
 
 # This is game start
@@ -30,16 +56,15 @@ if os.path.isfile('./Score(R.P.S).txt'):
 else:
     scf = open("Score(R.P.S).txt", "x")
     scf.close()
-    print("Your score got deleted. both score are 0.")
+    print("Your score got deleted.")
 
 # This will take score from file, first score in file is of computer and second player
 # first score(cms) is of computer and second(pls) player
 
-scf = open("Score(R.P.S).txt", "r")
-sc = scf.readlines()
-cms = int(sc[0])
-pls = int(sc[1])
-scf.close()
+try:
+    Getfilescore()
+except IndexError:
+    ss(0,0)
 
 # This will show previous score if both score is zero/got deleted it will show nothing
 # it will also ask to reset score if any
