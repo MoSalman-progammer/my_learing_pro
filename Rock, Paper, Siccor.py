@@ -15,6 +15,8 @@ def getscore(pls, cms):
 # first score(cms) is of computer and second(pls) player
 
 def Getfilescore():
+    global cms
+    global pls
     scf = open("Score(R.P.S).txt", "r")
     sc = scf.readlines()
     cms = int(sc[0])
@@ -63,7 +65,7 @@ else:
 
 try:
     Getfilescore()
-except IndexError:
+except:
     ss(0,0)
 
 # This will show previous score if both score is zero/got deleted it will show nothing
