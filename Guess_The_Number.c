@@ -48,21 +48,26 @@ int main(){
         printf("Conratulation You found the right number in %d Attempt.\n",round);
         break;
        }
-       else if (guessed_number > random_number)
-       {
-        printf("Guess lower.\n");
-       }
        else
        {
-        printf("Guess higher.\n");
+           if (round==number_of_attempt)
+           {
+            printf("The correct number was %d.\n",random_number);
+           }
+           else
+           {
+               if (guessed_number > random_number)
+               {
+                printf("Guess lower.\n");
+               }
+               else
+               {
+                printf("Guess higher.\n");
+               }
+           }
        }
     }
 
-    if (guessed_number!=random_number)
-    {
-        printf("The correct number was %D.\n",random_number);
-    }
-    
     printf("Game Over.\n");
     
     //asking player if they want to play again
