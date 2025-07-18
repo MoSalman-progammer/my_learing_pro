@@ -65,7 +65,7 @@ else:
 
 try:
     Getfilescore()
-except:
+except IndexError:
     ss(0,0)
 
 # This will show previous score if both score is zero/got deleted it will show nothing
