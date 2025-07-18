@@ -57,6 +57,11 @@ int main(){
         printf("Guess higher.\n");
        }
     }
+
+    if (guessed_number!=random_number)
+    {
+        printf("The correct number was %D.\n",random_number);
+    }
     
     printf("Game Over.\n");
     
